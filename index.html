@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151c35">
+  <meta name="description" content="Китай с русскоговорящими гидами: от Пекина до Лхасы. Индивидуальные и групповые экскурсии, трансфер и туры.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Китай Go — от Пекина до Лхасы</title>
+  <link rel="icon" href="assets/img1.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/font-2.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/font-0.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/img.webp" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="refinements.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержанию</a>
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-art" aria-hidden="true"><img src="assets/img.webp" width="2400" height="1339" fetchpriority="high" alt=""></div>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#main" aria-label="Китай Go — главная"><img src="assets/img1.svg" width="190" height="50" alt="Furui Business Travel Service"></a>
+        <nav class="desktop-nav" aria-label="Основная навигация">
+          <navigation-item><a href="#destinations">Экскурсии <img src="assets/imgFrame9.svg" width="10" height="8" alt=""></a></navigation-item>
+          <navigation-item><button data-info="Отзывы">Отзывы</button></navigation-item>
+          <navigation-item><button data-info="Блог">Блог</button></navigation-item>
+          <navigation-item><button data-info="Туристам">Туристам</button></navigation-item>
+          <navigation-item><button data-info="О компании">О компании</button></navigation-item>
+          <navigation-item><button data-info="Контакты">Контакты</button></navigation-item>
+        </nav>
+        <div class="header-contacts">
+          <button class="phone" data-info="Контакты">+7 (123) 456-78-90</button>
+          <div class="messengers">
+            <messenger-link><button class="circle-button" data-info="WhatsApp" aria-label="Связаться в WhatsApp"><travel-icon><img src="assets/imgIcon.svg" width="22" height="22" alt=""></travel-icon></button></messenger-link>
+            <messenger-link><button class="circle-button" data-info="Telegram" aria-label="Связаться в Telegram"><travel-icon><img src="assets/imgIcon1.svg" width="22" height="22" alt=""></travel-icon></button></messenger-link>
+          </div>
+        </div>
+        <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+      </div>
+      <nav id="mobile-menu" class="mobile-menu" aria-label="Мобильная навигация" hidden>
+        <a href="#destinations">Экскурсии</a><button data-info="Отзывы">Отзывы</button><button data-info="Блог">Блог</button><button data-info="Туристам">Туристам</button><button data-info="О компании">О компании</button><button data-info="Контакты">Контакты</button>
+      </nav>
+    </header>
+    <div class="container hero-content">
+      <div class="hero-copy">
+        <p class="hero-eyebrow enter" style="--delay:80ms">Китай с русскоговорящими гидами:</p>
+        <h1 class="enter" id="hero-title" style="--delay:180ms">от Пекина до Лхасы</h1>
+        <p class="hero-description enter" style="--delay:300ms">Вы можете прилететь в Пекин, Шанхай, Чэнду и другие города Китая из России. Мы организуем экскурсии на месте, включая встречу и проводы в аэропорту.</p>
+        <a class="primary-button enter" href="#tours" style="--delay:400ms">Подобрать тур</a>
+      </div>
+      <div class="hero-facts enter" style="--delay:500ms">
+        <trip-fact><img class="fact-icon" src="assets/imgProperty1Variant2.svg" width="98" height="98" alt=""><div><p>Продолжительность</p><strong>от 1 дня</strong></div></trip-fact>
+        <trip-fact><img class="fact-icon" src="assets/imgProperty1Variant3.svg" width="98" height="98" alt=""><div><p>Туры</p><strong>от 1 чел</strong></div></trip-fact>
+      </div>
+      <aside class="guides-card enter" style="--delay:650ms" aria-label="Русскоязычные гиды">
+        <div class="guide-copy"><p><em>Русскоязычные</em><br>гиды для вас</p><span>на протяжении всего пути</span></div>
+        <div class="guide-ellipse" aria-hidden="true"><div><img src="assets/imgEllipse3.svg" width="444" height="788" alt=""></div></div>
+        <img class="guide-people" src="assets/img2.webp" width="700" height="938" alt="Иллюстрация гидов из макета">
+        <div class="language-badge" aria-label="Русский язык"><img src="assets/imgGroup1.svg" width="50" height="50" alt=""></div>
+      </aside>
+    </div>
+  </section>
+  <section class="destinations" id="destinations" aria-labelledby="destinations-title">
+    <div class="container destinations-grid">
+      <div class="directions-content reveal">
+        <h2 id="destinations-title">Куда отправимся?</h2>
+        <div class="destination-list" role="tablist" aria-label="Направления" aria-orientation="vertical">
+          <destination-row><button id="city-beijing" role="tab" aria-selected="false" aria-controls="city-preview" tabindex="-1" data-city="beijing"><span class="city-name">Пекин</span><span class="city-description">Индивидуальные/групповые экскурсии, трансфер</span><span class="city-arrow" aria-hidden="true"><img src="assets/imgFrame192.svg" width="52" height="52" alt=""></span></button></destination-row>
+          <destination-row><button id="city-shanghai" role="tab" aria-selected="true" aria-controls="city-preview" tabindex="0" data-city="shanghai"><span class="city-name">Шанхай</span><span class="city-description">Индивидуальные экскурсии, трансфер</span><span class="city-arrow" aria-hidden="true"><img src="assets/imgFrame192.svg" width="52" height="52" alt=""></span></button></destination-row>
+          <destination-row><button id="city-zhangjiajie" role="tab" aria-selected="false" aria-controls="city-preview" tabindex="-1" data-city="zhangjiajie"><span class="city-name">Чжанцзяцзе</span><span class="city-description">Трансфер</span><span class="city-arrow" aria-hidden="true"><img src="assets/imgFrame192.svg" width="52" height="52" alt=""></span></button></destination-row>
+          <destination-row><button id="city-chengdu" role="tab" aria-selected="false" aria-controls="city-preview" tabindex="-1" data-city="chengdu"><span class="city-name">Чэнду</span><span class="city-description">Индивидуальные/групповые экскурсии, трансфер</span><span class="city-arrow" aria-hidden="true"><img src="assets/imgFrame192.svg" width="52" height="52" alt=""></span></button></destination-row>
+        </div>
+      </div>
+      <div class="destination-preview reveal" id="city-preview" role="tabpanel" aria-labelledby="city-shanghai" tabindex="0">
+        <img id="destination-photo" src="assets/shanghai.jpg" width="1000" height="1000" loading="lazy" decoding="async" alt="Набережная Вайтань и панорама Шанхая">
+        <img id="destination-next" width="1000" height="1000" alt="" aria-hidden="true" hidden>
+      </div>
+    </div>
+  </section>
+  <section class="tours" id="tours" aria-labelledby="tours-title">
+    <div class="container tours-heading reveal"><h2 id="tours-title">Рекомендуем туры</h2><div class="carousel-controls" aria-label="Управление лентой туров"><button id="tour-prev" aria-label="Предыдущий тур" disabled><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg></button><span></span><button id="tour-next" aria-label="Следующий тур"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button></div></div>
+    <div class="tour-rail reveal" id="tour-rail" tabindex="0" role="region" aria-roledescription="карусель" aria-label="Туры по Китаю">
+      <tour-card><button class="tour-card" data-tour="0" aria-label="Подробнее: Пекин, Шанхай, Лоян, от 179 000 рублей"><div class="tour-image"><img src="assets/imgFrame31451.webp" width="1300" height="867" loading="lazy" decoding="async" alt="Путешествие с ребёнком, Храм Неба в Пекине"></div><div class="tour-body"><span class="tour-duration">15 дней / 14 ночей</span><h3>Пекин → Шанхай → Лоян</h3><p class="tour-price">От 179 000 ₽</p></div></button></tour-card>
+      <tour-card><button class="tour-card" data-tour="1" aria-label="Подробнее: Шанхай, от 89 000 рублей"><div class="tour-image"><img class="tour-portrait" src="assets/imgFrame31452.webp" width="1300" height="1950" loading="lazy" decoding="async" alt="Путешественница у китайского храма"></div><div class="tour-body"><span class="tour-duration">11 дней / 10 ночей</span><h3>Шанхай</h3><p class="tour-price">От 89 000 ₽</p></div></button></tour-card>
+      <tour-card><button class="tour-card" data-tour="2" aria-label="Подробнее: Сиань, от 65 000 рублей"><div class="tour-image"><img src="assets/imgFrame31453.webp" width="1300" height="866" loading="lazy" decoding="async" alt="Путешественник на набережной китайского города"></div><div class="tour-body"><span class="tour-duration">6 дней / 5 ночей</span><h3>Сиань</h3><p class="tour-price">От 65 000 ₽</p></div></button></tour-card>
+    </div>
+    <div class="tour-pagination" aria-label="Выбор тура"><button class="is-active" aria-label="Тур 1 из 3" aria-current="true" data-slide="0"></button><button aria-label="Тур 2 из 3" data-slide="1"></button><button aria-label="Тур 3 из 3" data-slide="2"></button></div>
+    <p class="sr-only" id="carousel-status" aria-live="polite">Тур 1 из 3</p>
+  </section>
+</main>
+<dialog id="detail-dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="Закрыть окно"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button><p class="dialog-eyebrow" id="dialog-eyebrow">Китай Go</p><h2 id="dialog-title"></h2><div id="dialog-content"></div><button class="primary-button dialog-done">Понятно</button></dialog>
+<noscript><p class="noscript-note">Просмотр страницы доступен без JavaScript. Для переключения направлений и открытия подробностей включите JavaScript.</p></noscript>
+</body>
+</html>
