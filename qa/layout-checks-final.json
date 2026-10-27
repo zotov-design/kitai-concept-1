@@ -1,0 +1,101 @@
+[
+  {
+    "cards": [
+      340,
+      340,
+      340
+    ],
+    "clipped": [],
+    "headerOverflow": false,
+    "overflow": false,
+    "width": 320
+  },
+  {
+    "cards": [
+      339,
+      339,
+      339
+    ],
+    "clipped": [],
+    "headerOverflow": false,
+    "overflow": false,
+    "width": 360
+  },
+  {
+    "cards": [
+      358,
+      358,
+      358
+    ],
+    "clipped": [],
+    "headerOverflow": false,
+    "overflow": false,
+    "width": 390
+  },
+  {
+    "cards": [
+      469,
+      469,
+      469
+    ],
+    "clipped": [],
+    "headerOverflow": false,
+    "overflow": false,
+    "width": 768
+  },
+  {
+    "cards": [
+      469,
+      469,
+      469
+    ],
+    "clipped": [],
+    "headerOverflow": false,
+    "overflow": false,
+    "width": 1024
+  },
+  {
+    "cards": [
+      469,
+      469,
+      469
+    ],
+    "clipped": [],
+    "headerOverflow": false,
+    "overflow": false,
+    "width": 1199
+  },
+  {
+    "cards": [
+      417,
+      417,
+      417
+    ],
+    "clipped": [],
+    "headerOverflow": false,
+    "overflow": false,
+    "width": 1200
+  },
+  {
+    "cards": [
+      500,
+      500,
+      500
+    ],
+    "clipped": [],
+    "headerOverflow": false,
+    "overflow": false,
+    "width": 1440
+  },
+  {
+    "cards": [
+      666,
+      666,
+      666
+    ],
+    "clipped": [],
+    "headerOverflow": false,
+    "overflow": false,
+    "width": 1920
+  }
+]

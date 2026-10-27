@@ -1,0 +1,42 @@
+{
+  "status": "blocked_by_figma_plan",
+  "reason": "Requires Organization or Enterprise library",
+  "mappings": [
+    {
+      "nodeId": "21:40",
+      "componentName": "NavigationItem",
+      "source": "D:/Мой диск_Саша/9. Zotov Design/web-дизайн/Китай Go/v1/dist/components.js",
+      "label": "Web Components"
+    },
+    {
+      "nodeId": "26:653",
+      "componentName": "MessengerLink",
+      "source": "D:/Мой диск_Саша/9. Zotov Design/web-дизайн/Китай Go/v1/dist/components.js",
+      "label": "Web Components"
+    },
+    {
+      "nodeId": "26:370",
+      "componentName": "TravelIcon",
+      "source": "D:/Мой диск_Саша/9. Zotov Design/web-дизайн/Китай Go/v1/dist/components.js",
+      "label": "Web Components"
+    },
+    {
+      "nodeId": "61:1978",
+      "componentName": "TripFact",
+      "source": "D:/Мой диск_Саша/9. Zotov Design/web-дизайн/Китай Go/v1/dist/components.js",
+      "label": "Web Components"
+    },
+    {
+      "nodeId": "64:2098",
+      "componentName": "DestinationRow",
+      "source": "D:/Мой диск_Саша/9. Zotov Design/web-дизайн/Китай Go/v1/dist/components.js",
+      "label": "Web Components"
+    },
+    {
+      "nodeId": "64:2186",
+      "componentName": "TourCard",
+      "source": "D:/Мой диск_Саша/9. Zotov Design/web-дизайн/Китай Go/v1/dist/components.js",
+      "label": "Web Components"
+    }
+  ]
+}
