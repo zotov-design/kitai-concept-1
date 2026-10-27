@@ -1,0 +1,6 @@
+reference/
+qa/
+dist/assets/*.png
+.sites-checkout/
+.sites-checkout-*/
+node_modules/

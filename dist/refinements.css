@@ -1,0 +1,21 @@
+/* Source SVGs stay intact; wrappers reproduce the Figma placement. */
+.skip-link{opacity:0;pointer-events:none}
+.skip-link:focus{opacity:1;pointer-events:auto}
+.guide-ellipse:after{display:none}
+.guide-ellipse>div{position:absolute;width:calc(904*var(--u));height:calc(778*var(--u));left:calc(113*var(--u));top:calc(-140*var(--u));display:grid;place-items:center}
+.guide-ellipse img{width:calc(444*var(--u));height:calc(788*var(--u));max-width:none;transform:rotate(60deg)}
+.language-badge{overflow:hidden}
+.language-badge img{width:100%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:50%}
+.tour-image{position:relative}
+.tour-image img{position:absolute;left:0;top:0}
+@media(min-width:1200px){.hero{min-height:0}.hero-description{font-size:max(14px,calc(18*var(--u)))}}
+@media(max-width:639px){
+ .hero-art{width:700px;height:391px;left:calc(50% - 540px);bottom:174px}
+ destination-row button:not([aria-selected=true]):hover{background:transparent;border-radius:0}
+ .tour-card:hover .tour-body{background:transparent;border-bottom-color:#1a39571f}
+ .tour-card:hover .tour-image{border-radius:12px}
+ .tour-card:hover .tour-image img:not(.tour-portrait){transform:none}
+ .tour-card:hover .tour-portrait{transform:translateY(-50.01%)}
+ .circle-button:hover{transform:none;background:var(--blue)}
+ .primary-button:hover{background:var(--blue)}
+}
