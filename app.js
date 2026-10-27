@@ -23,16 +23,17 @@ document.addEventListener('click',event=>{if(!event.target.closest('.site-header
 matchMedia('(min-width:1200px)').addEventListener('change',closeMenu);
 
 const cities={beijing:{image:'assets/beijing.jpg',alt:'Храм Неба в Пекине'},shanghai:{image:'assets/shanghai.jpg',alt:'Набережная Вайтань и панорама Шанхая'},zhangjiajie:{image:'assets/zhangjiajie.jpg',alt:'Горы национального парка Чжанцзяцзе'},chengdu:{image:'assets/chengdu.jpg',alt:'Большая панда в Чэнду'}};
-const tabs=all('[data-city]');
+const destinationLinks=all('[data-city]');
+const desktopHover=matchMedia('(min-width:640px) and (hover:hover) and (pointer:fine)');
 const preview=document.querySelector('#city-preview');
 const photo=document.querySelector('#destination-photo');
 const nextPhoto=document.querySelector('#destination-next');
 let selection=0, fadeTimer;
-async function selectCity(tab){
+async function previewCity(link){
+  if(!desktopHover.matches)return;
   const token=++selection;
-  tabs.forEach(t=>{const selected=t===tab;t.setAttribute('aria-selected',String(selected));t.tabIndex=selected?0:-1;});
-  preview.setAttribute('aria-labelledby',tab.id);
-  const city=cities[tab.dataset.city];
+  preview.setAttribute('aria-labelledby',link.id);
+  const city=cities[link.dataset.city];
   const preload=new Image();preload.src=city.image;
   try{await preload.decode();}catch{return;}
   if(token!==selection)return;
@@ -43,14 +44,9 @@ async function selectCity(tab){
   requestAnimationFrame(()=>requestAnimationFrame(()=>{if(token===selection)nextPhoto.classList.add('is-visible');}));
   fadeTimer=setTimeout(()=>{if(token!==selection)return;photo.src=city.image;photo.alt=city.alt;nextPhoto.hidden=true;nextPhoto.classList.remove('is-visible');},420);
 }
-tabs.forEach((tab,index)=>{
-  tab.addEventListener('click',()=>selectCity(tab));
-  tab.addEventListener('keydown',event=>{let next;
-    if(event.key==='ArrowDown'||event.key==='ArrowRight')next=(index+1)%tabs.length;
-    if(event.key==='ArrowUp'||event.key==='ArrowLeft')next=(index+tabs.length-1)%tabs.length;
-    if(event.key==='Home')next=0;if(event.key==='End')next=tabs.length-1;
-    if(next!==undefined){event.preventDefault();tabs[next].focus();selectCity(tabs[next]);}
-  });
+destinationLinks.forEach(link=>{
+  link.addEventListener('mouseenter',()=>previewCity(link));
+  link.addEventListener('focus',()=>previewCity(link));
 });
 
 const rail=document.querySelector('#tour-rail');
@@ -77,6 +73,48 @@ rail.addEventListener('scroll',()=>{if(scrollQueued)return;scrollQueued=true;req
 rail.addEventListener('keydown',event=>{if(event.target!==rail)return;if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();goToSlide(currentSlide+(event.key==='ArrowRight'?1:-1));}});
 new ResizeObserver(updateCarousel).observe(rail);updateCarousel();
 
+// Mouse dragging supplements native touch/trackpad scrolling. A real drag must
+// never turn into a card click, and releasing the pointer must not snap/jump.
+all('img',rail).forEach(img=>{img.draggable=false;});
+let mouseDrag=null,suppressDragClick=false;
+rail.addEventListener('pointerdown',event=>{
+  if(event.pointerType!=='mouse'||event.button!==0)return;
+  suppressDragClick=false;
+  rail.scrollTo({left:rail.scrollLeft,behavior:'instant'});
+  mouseDrag={id:event.pointerId,x:event.clientX,y:event.clientY,left:rail.scrollLeft,active:false};
+});
+window.addEventListener('pointermove',event=>{
+  if(!mouseDrag||event.pointerId!==mouseDrag.id)return;
+  if(!(event.buttons&1)){finishMouseDrag();return;}
+  const dx=event.clientX-mouseDrag.x,dy=event.clientY-mouseDrag.y;
+  if(!mouseDrag.active){
+    if(Math.abs(dx)<6||Math.abs(dx)<Math.abs(dy))return;
+    mouseDrag.active=true;
+    rail.classList.add('is-dragging');
+    rail.setPointerCapture(event.pointerId);
+  }
+  event.preventDefault();
+  rail.scrollLeft=mouseDrag.left-dx;
+},{passive:false});
+function finishMouseDrag(){
+  if(!mouseDrag)return;
+  const ended=mouseDrag;
+  mouseDrag=null;
+  suppressDragClick=ended.active;
+  rail.classList.remove('is-dragging');
+  if(rail.hasPointerCapture(ended.id))rail.releasePointerCapture(ended.id);
+}
+window.addEventListener('pointerup',finishMouseDrag);
+window.addEventListener('pointercancel',finishMouseDrag);
+window.addEventListener('blur',finishMouseDrag);
+rail.addEventListener('lostpointercapture',finishMouseDrag);
+rail.addEventListener('click',event=>{
+  if(!suppressDragClick)return;
+  suppressDragClick=false;
+  event.preventDefault();
+  event.stopImmediatePropagation();
+},true);
+
 const dialog=document.querySelector('#detail-dialog'),title=document.querySelector('#dialog-title'),content=document.querySelector('#dialog-content');
 let returnFocus=null;
 function openDialog(heading,paragraphs){
@@ -92,7 +130,8 @@ all('[data-info]').forEach(button=>button.addEventListener('click',()=>{
 }));
 all('[data-tour]').forEach(button=>button.addEventListener('click',()=>{
   const card=button.closest('tour-card');
-  openDialog(card.querySelector('h3').textContent,[{text:card.querySelector('.tour-duration').textContent},{text:card.querySelector('.tour-price').textContent,className:'detail-price'},{text:'Маршрут и стоимость перенесены из макета V1. Программу, даты выезда и бронирование нужно подключить после предоставления данных.'}]);
+  const details=button.dataset.demo==='true'?'Дополнительный вариант для демонстрации концепта. Программу, длительность и стоимость нужно согласовать отдельно.':'Маршрут и стоимость перенесены из макета V1. Программу, даты выезда и бронирование нужно подключить после предоставления данных.';
+  openDialog(card.querySelector('h3').textContent,[{text:card.querySelector('.tour-duration').textContent},{text:card.querySelector('.tour-price').textContent,className:'detail-price'},{text:details}]);
 }));
 document.querySelector('.dialog-close').addEventListener('click',closeDialog);document.querySelector('.dialog-done').addEventListener('click',closeDialog);
 dialog.addEventListener('click',event=>{const rect=dialog.getBoundingClientRect();if(event.target===dialog&&(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom))closeDialog();});
